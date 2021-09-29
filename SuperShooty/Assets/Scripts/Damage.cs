@@ -12,12 +12,12 @@ public class Damage : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print("Collided");
+        //print("Collided");
         // Make sure there is a health component.
         Health h = collision.gameObject.GetComponent<Health>();
         if(h != null)
         {
-            print("Health exists");
+            //print("Health exists");
             h.ChangeHealth(-Amount);
         }
         if(DestroyOnCollide)

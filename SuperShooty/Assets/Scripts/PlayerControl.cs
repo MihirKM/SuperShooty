@@ -10,9 +10,11 @@ using UnityEngine.Events;
 */
 public class PlayerControl : MonoBehaviour
 {
+    [Tooltip("Use usfxr to generate this string.")]
+    public string ShootingSound;
     UnityEvent m_MyEvent = new UnityEvent();
-    public Button fireButton;
-    public AudioSource FireSound;
+    //public Button fireButton;
+    SfxrSynth synth = new SfxrSynth();
     public float Speed = 500;
     public float RotationSpeed = 10;
     Rigidbody2D myRb;
@@ -40,6 +42,7 @@ public class PlayerControl : MonoBehaviour
         myRb = GetComponent<Rigidbody2D>();
         FC = FindObjectOfType<CameraFollow>();
         m_MyEvent.AddListener(Shooty);
+        synth.parameters.SetSettingsString(ShootingSound);
     }
 
     // FixedUpdate is called 30 times/second
@@ -88,6 +91,6 @@ public class PlayerControl : MonoBehaviour
         cloneRb.velocity = transform.up * BulletSpeed;
         // Pew!
         FC.TriggerShake(FireShakeTime, FireShakeMagnitude);
-        FireSound.Play();
+        synth.Play();
     }
 }

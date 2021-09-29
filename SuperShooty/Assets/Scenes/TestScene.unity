@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -309,7 +309,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 360.5, y: 185.5}
+  m_AnchoredPosition: {x: 320.00006, y: 290}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &273882698
@@ -1172,11 +1172,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b208210c066db7449239fb09fb19d5f, type: 3}
---- !u!82 &931933460 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 6120008333065572085, guid: 9b208210c066db7449239fb09fb19d5f, type: 3}
-  m_PrefabInstance: {fileID: 931933459}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1016320549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1266,11 +1261,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 100
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 195.4
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1540,7 +1535,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 404.52985, y: 14.999999}
+  m_AnchoredPosition: {x: 364.03003, y: 38.399994}
   m_SizeDelta: {x: 71.94, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1360841165
@@ -2152,8 +2147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dde725adc8d2a342b7d5e5698701bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireButton: {fileID: 0}
-  FireSound: {fileID: 931933460}
+  ShootingSound: 1,.5,,.2718,.2279,.3033,.3,.7427,.0157,-.3964,,,,,,,,,,,.2827,.0155,,,,1,,,.2757,,,
   Speed: 400
   RotationSpeed: 20
   Bullet: {fileID: 748745400742507928, guid: d3cdecba255d32546a038a09f3ba35f8, type: 3}
@@ -2342,7 +2336,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 404.52988, y: -14.999999}
+  m_AnchoredPosition: {x: 364.03, y: -39}
   m_SizeDelta: {x: 71.94, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1756445105
