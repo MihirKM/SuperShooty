@@ -15,6 +15,11 @@ public class TimedDeletion : MonoBehaviour
     IEnumerator DeletionTimer()
     {
         yield return new WaitForSeconds(ObjectLifetime);
+        Death Grim = GetComponent<Death>();
+        if(Grim != null)
+        {
+            Grim.OnDeath.Invoke();
+        }    
         Destroy(gameObject);
     }
 

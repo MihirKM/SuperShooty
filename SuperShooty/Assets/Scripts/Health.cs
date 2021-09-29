@@ -42,6 +42,11 @@ public class Health : MonoBehaviour
     {
         //DestroySound.Play();
         yield return new WaitForSeconds(DestructionTime);
+        Death Grim = GetComponent<Death>();
+        if (Grim != null)
+        {
+            Grim.OnDeath.Invoke();
+        }
         Destroy(gameObject);
     }
 

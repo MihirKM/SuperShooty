@@ -22,6 +22,11 @@ public class Damage : MonoBehaviour
         }
         if(DestroyOnCollide)
         {
+            Death Grim = GetComponent<Death>();
+            if (Grim != null)
+            {
+                Grim.OnDeath.Invoke();
+            }
             Destroy(gameObject);
         }
     }
@@ -46,6 +51,11 @@ public class Damage : MonoBehaviour
         }
         if (DestroyOnCollide)
         {
+            Death Grim = GetComponent<Death>();
+            if (Grim != null)
+            {
+                Grim.OnDeath.Invoke();
+            }
             Destroy(gameObject);
         }
     }
