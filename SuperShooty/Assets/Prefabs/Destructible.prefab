@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4862888216044572269}
   - component: {fileID: 4862888216044572048}
   m_Layer: 0
-  m_Name: Trap
+  m_Name: Destructible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f91d5a9a9c2fbf147954eab378b072d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DestroySound: {fileID: 3154481423303908487, guid: b991a64ba9d59924abe29750617fb14e, type: 3}
   CurrentHealth: 1
   MaxHealth: 1
   DestroyAtZero: 1

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    //[Tooltip("Sound to play on destruction.")]
+    //public AudioSource DestroySound;
     [Tooltip("Starting health of the object.")]
     public int CurrentHealth = 20;
     [Tooltip("Maximum health of the object.")]
@@ -38,6 +40,7 @@ public class Health : MonoBehaviour
 
     IEnumerator TimedDestruction()
     {
+        //DestroySound.Play();
         yield return new WaitForSeconds(DestructionTime);
         Destroy(gameObject);
     }

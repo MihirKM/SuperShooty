@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
+    
     [Tooltip("Amount of damage.")]
     public int Amount = 4;
     [Tooltip("Destroy object on collision. (Useful for projectiles!)")]

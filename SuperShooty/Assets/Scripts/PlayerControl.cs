@@ -8,6 +8,7 @@ using UnityEngine;
 */
 public class PlayerControl : MonoBehaviour
 {
+    public AudioSource FireSound;
     public float Speed = 500;
     public float RotationSpeed = 10;
     Rigidbody2D myRb;
@@ -72,5 +73,7 @@ public class PlayerControl : MonoBehaviour
         // Set the speed of the clone.
         Rigidbody2D cloneRb = clone.GetComponent<Rigidbody2D>();
         cloneRb.velocity = transform.up * BulletSpeed;
+        // Pew!
+        FireSound.Play();
     }
 }

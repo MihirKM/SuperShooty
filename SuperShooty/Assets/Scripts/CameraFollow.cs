@@ -58,9 +58,11 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if(Input.GetKeyDown(KeyCode.F))
         {
             TriggerShake(0.2f, 0.2f);
         }
+        */
     }
 }
