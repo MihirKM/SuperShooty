@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
 
 /*
 "My momma always said life is like a box of chocolates; You never know what you're gonna get."
@@ -8,6 +10,8 @@ using UnityEngine;
 */
 public class PlayerControl : MonoBehaviour
 {
+    UnityEvent m_MyEvent = new UnityEvent();
+    public Button fireButton;
     public AudioSource FireSound;
     public float Speed = 500;
     public float RotationSpeed = 10;
@@ -28,12 +32,14 @@ public class PlayerControl : MonoBehaviour
     public float FireShakeTime = 0.1f;
     public float FireShakeMagnitude = 0.2f;
 
+    bool ShootyBool = false;
 
     // Start is called before the first frame update
     void Start()
     {
         myRb = GetComponent<Rigidbody2D>();
         FC = FindObjectOfType<CameraFollow>();
+        m_MyEvent.AddListener(Shooty);
     }
 
     // FixedUpdate is called 30 times/second
@@ -53,16 +59,23 @@ public class PlayerControl : MonoBehaviour
     {
         // Increase timer based on time passed.
         Timer += Time.deltaTime;
-        if (Timer > Cooldown && Input.GetAxisRaw("Jump") == 1)
+        if (Timer > Cooldown && (Input.GetAxisRaw("Jump") == 1 || ShootyBool))
         {
             // Reset the timer.
             Timer = 0;
             // FIRE!!!
             Fire(Offset1);
             Fire(Offset2);
-            FC.TriggerShake(FireShakeTime, FireShakeMagnitude);
         }
-
+    }
+    void Shooty()
+    {
+        ShootyBool = true;
+    }
+    void StopShooty()
+    {
+        //System.Threading.Thread.Sleep(3000);
+        ShootyBool = false;
     }
     // Spawns one object with offset.
     void Fire(Vector3 offset)
@@ -74,6 +87,7 @@ public class PlayerControl : MonoBehaviour
         Rigidbody2D cloneRb = clone.GetComponent<Rigidbody2D>();
         cloneRb.velocity = transform.up * BulletSpeed;
         // Pew!
+        FC.TriggerShake(FireShakeTime, FireShakeMagnitude);
         FireSound.Play();
     }
 }
