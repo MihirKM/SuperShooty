@@ -17,12 +17,22 @@ public class PlayerControl : MonoBehaviour
     public float Cooldown = 0.2f;
     float Timer = 0;
     public float BulletSpeed = 15;
+    // Bullet spawn positions.
     public Vector3 Offset1 = new Vector3(0.35f, 0.4f, 0);
     public Vector3 Offset2 = new Vector3(-0.35f, 0.4f, 0);
+
+    public float FireError = 1f;
+    // Screen shake
+    CameraFollow FC;
+    public float FireShakeTime = 0.1f;
+    public float FireShakeMagnitude = 0.2f;
+
+
     // Start is called before the first frame update
     void Start()
     {
         myRb = GetComponent<Rigidbody2D>();
+        FC = FindObjectOfType<CameraFollow>();
     }
 
     // FixedUpdate is called 30 times/second
@@ -49,6 +59,7 @@ public class PlayerControl : MonoBehaviour
             // FIRE!!!
             Fire(Offset1);
             Fire(Offset2);
+            FC.TriggerShake(FireShakeTime, FireShakeMagnitude);
         }
 
     }

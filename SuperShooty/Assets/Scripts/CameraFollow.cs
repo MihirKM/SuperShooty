@@ -10,17 +10,17 @@ public class CameraFollow : MonoBehaviour
     public float LerpVal = 0.8f;
 
     float ShakeTime = 0;
-    float ShakeAmount = 0;
+    float ShakeMagnitude = 0;
     // Call this function to make the screen shake.
-    public void TriggerShake(float time, float amount)
+    public void TriggerShake(float time, float magnitude)
     {
         if(ShakeTime < time)
         {
             ShakeTime = time;
         }
-        if(ShakeAmount < amount)
+        if(ShakeMagnitude < magnitude)
         {
-            ShakeAmount = amount;
+            ShakeMagnitude = magnitude;
         }
 
     }    
@@ -44,13 +44,13 @@ public class CameraFollow : MonoBehaviour
         }
         if(ShakeTime > 0)
         {
-            ShakeTime -= Time.deltaTime;
-            Vector3 randDir = Random.insideUnitCircle * ShakeAmount;
+            ShakeTime -= Time.fixedDeltaTime;
+            Vector3 randDir = Random.insideUnitCircle * ShakeMagnitude;
             transform.position += randDir;
         }
         else
         {
-            ShakeAmount = 0;
+            ShakeMagnitude = 0;
         }
 
     }
