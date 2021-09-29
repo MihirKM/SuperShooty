@@ -34,14 +34,12 @@ public class PlayerControl : MonoBehaviour
     public float FireShakeTime = 0.1f;
     public float FireShakeMagnitude = 0.2f;
 
-    bool ShootyBool = false;
 
     // Start is called before the first frame update
     void Start()
     {
         myRb = GetComponent<Rigidbody2D>();
         FC = FindObjectOfType<CameraFollow>();
-        m_MyEvent.AddListener(Shooty);
         synth.parameters.SetSettingsString(ShootingSound);
     }
 
@@ -62,7 +60,7 @@ public class PlayerControl : MonoBehaviour
     {
         // Increase timer based on time passed.
         Timer += Time.deltaTime;
-        if (Timer > Cooldown && (Input.GetAxisRaw("Jump") == 1 || ShootyBool))
+        if (Timer > Cooldown && (Input.GetAxisRaw("Jump") == 1))
         {
             // Reset the timer.
             Timer = 0;
@@ -70,15 +68,6 @@ public class PlayerControl : MonoBehaviour
             Fire(Offset1);
             Fire(Offset2);
         }
-    }
-    void Shooty()
-    {
-        ShootyBool = true;
-    }
-    void StopShooty()
-    {
-        //System.Threading.Thread.Sleep(3000);
-        ShootyBool = false;
     }
     // Spawns one object with offset.
     void Fire(Vector3 offset)
