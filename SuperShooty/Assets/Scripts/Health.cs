@@ -16,6 +16,7 @@ public class Health : MonoBehaviour
     public float InvulTime = 0.3f;
     float InvulTimer = 0;
     float DestructionTime = 0.2f;
+    bool dying = false;
 
     public void ChangeHealth(int amount)
     {
@@ -31,7 +32,11 @@ public class Health : MonoBehaviour
         // If reduced to 0, and object must be destroyed, do so.
         if (CurrentHealth <= 0 && DestroyAtZero)
         {
-            StartCoroutine(TimedDestruction());
+            if(!dying)
+            {
+                StartCoroutine(TimedDestruction());
+            }
+            
         }
         // Correct health if over max.
         if (CurrentHealth > MaxHealth)
@@ -40,6 +45,7 @@ public class Health : MonoBehaviour
 
     IEnumerator TimedDestruction()
     {
+        dying = true;
         //DestroySound.Play();
         yield return new WaitForSeconds(DestructionTime);
         Death Grim = GetComponent<Death>();
