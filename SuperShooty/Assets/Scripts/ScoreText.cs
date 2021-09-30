@@ -5,6 +5,8 @@ using TMPro;
 
 public class ScoreText : MonoBehaviour
 {
+    SfxrSynth synth = new SfxrSynth();
+    public string ScoreSound;
     TMP_Text Score;
     // Start is called before the first frame update
     void Start()
@@ -12,11 +14,13 @@ public class ScoreText : MonoBehaviour
         Score = GetComponent<TMP_Text>();
         ChangeText();
         GameManager.OnScoreChange.AddListener(ChangeText);
+        synth.parameters.SetSettingsString(ScoreSound);
     }
 
     public void ChangeText()
     {
         Score.text = "Score: " + GameManager.Score;
+        synth.Play();
     }    
 
     // Update is called once per frame
