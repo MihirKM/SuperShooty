@@ -17,6 +17,8 @@ public class PlayerControl : MonoBehaviour
     SfxrSynth synth = new SfxrSynth();
     public float Speed = 500;
     public float RotationSpeed = 10;
+    public GameObject musicPlayer;
+    AudioSource audioref;
     Rigidbody2D myRb;
     // Laser spawner
     [Tooltip("Object to use as bullet.")]
@@ -41,6 +43,7 @@ public class PlayerControl : MonoBehaviour
         myRb = GetComponent<Rigidbody2D>();
         FC = FindObjectOfType<CameraFollow>();
         synth.parameters.SetSettingsString(ShootingSound);
+        audioref = musicPlayer.GetComponent<AudioSource>();
     }
 
     // FixedUpdate is called 30 times/second
@@ -51,6 +54,7 @@ public class PlayerControl : MonoBehaviour
         float rotSpeed = Input.GetAxisRaw("Horizontal") * RotationSpeed;
 
         // Forces & Torque exist.
+        audioref.pitch = myRb.velocity.magnitude / 12;
         myRb.AddForce(transform.up * ySpeed * Time.fixedDeltaTime);
         myRb.AddTorque(rotSpeed * Time.fixedDeltaTime);
     }

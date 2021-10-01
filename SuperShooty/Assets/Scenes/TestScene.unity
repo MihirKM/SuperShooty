@@ -1377,6 +1377,7 @@ MonoBehaviour:
   ShootingSound: 1,.5,,.2718,.2279,.3033,.3,.7427,.0157,-.3964,,,,,,,,,,,.2827,.0155,,,,1,,,.2757,,,
   Speed: 400
   RotationSpeed: 20
+  musicPlayer: {fileID: 1645685695}
   Bullet: {fileID: 748745400742507928, guid: d3cdecba255d32546a038a09f3ba35f8, type: 3}
   Cooldown: 0.2
   BulletSpeed: 15
